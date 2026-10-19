@@ -58,7 +58,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       client_reference_id: ref,
       customer_email: typeof email === "string" && email ? email : undefined,
       success_url: `${SITE_URL}/checkout/success?ref=${encodeURIComponent(ref)}`,
-      cancel_url: `${SITE_URL}/checkout?amount=${encodeURIComponent(amount)}&currency=${encodeURIComponent(currencyCode)}&ref=${encodeURIComponent(ref)}${email ? `&email=${encodeURIComponent(email)}` : ""}`,
+      cancel_url: `${SITE_URL}/checkout/cancelled?ref=${encodeURIComponent(ref)}`,
       custom_text: {
         submit: {
           message:

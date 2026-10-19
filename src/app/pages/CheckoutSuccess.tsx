@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router";
 import { CheckCircle2 } from "lucide-react";
+import { Button } from "../components/ui/button";
+
+const AUTO_CLOSE_SECONDS = 4;
 
 export default function CheckoutSuccess() {
   const [params] = useSearchParams();
   const ref = params.get("ref") ?? "";
+  const [secondsLeft, setSecondsLeft] = useState(AUTO_CLOSE_SECONDS);
+
+  useEffect(() => {
+    if (secondsLeft <= 0) {
+      window.close();
+      return;
+    }
+    const t = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [secondsLeft]);
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background px-6 py-12">
@@ -13,9 +27,12 @@ export default function CheckoutSuccess() {
         <CheckCircle2 className="w-14 h-14 text-green-500 mx-auto" />
         <h2 className="text-lg font-semibold text-white">Payment received</h2>
         <p className="text-sm text-muted-foreground">
-          You can close this window now and return to the Sendr tab to confirm your order.
+          Return to the Sendr tab to confirm your order. This window will close automatically in {secondsLeft}s.
         </p>
         {ref && <p className="text-[11px] text-muted-foreground">Reference: {ref}</p>}
+        <Button variant="outline" className="w-full rounded-full" onClick={() => window.close()}>
+          Close now
+        </Button>
       </div>
     </div>
   );
