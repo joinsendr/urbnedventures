@@ -47,7 +47,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         {
           price_data: {
             currency: currencyCode.toLowerCase(),
-            product_data: { name: "Sendr — USDT/USDC purchase" },
+            // Deliberately generic — no mention of Sendr or crypto here, since
+            // some card issuers flag/decline crypto-related line items.
+            product_data: { name: "Payment for your selected URBNED Service" },
             unit_amount: Math.round(amountNum * 100), // smallest currency unit (paise for INR)
           },
           quantity: 1,
@@ -57,6 +59,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       customer_email: typeof email === "string" && email ? email : undefined,
       success_url: `${SITE_URL}/checkout/success?ref=${encodeURIComponent(ref)}`,
       cancel_url: `${SITE_URL}/checkout?amount=${encodeURIComponent(amount)}&currency=${encodeURIComponent(currencyCode)}&ref=${encodeURIComponent(ref)}${email ? `&email=${encodeURIComponent(email)}` : ""}`,
+      custom_text: {
+        submit: {
+          message:
+            "Card payments are processed through an international payment gateway, so delivery to your service can take anywhere from 15 minutes to 48 hours depending on your bank. Please be patient - contact support if you need assistance.",
+        },
+      },
     });
 
     res.status(200).json({ url: session.url });

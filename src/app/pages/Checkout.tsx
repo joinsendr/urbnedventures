@@ -48,7 +48,7 @@ export default function Checkout() {
           <>
             <div>
               <p className="text-xs text-muted-foreground mb-1">You're completing a payment for</p>
-              <p className="text-sm text-foreground font-medium">Sendr crypto purchase</p>
+              <p className="text-sm text-foreground font-medium">Payment for your selected URBNED Service</p>
             </div>
 
             <div className="rounded-xl bg-secondary/40 border border-border/50 py-6">
@@ -59,6 +59,12 @@ export default function Checkout() {
             <div className="flex items-start gap-2 text-left text-xs text-muted-foreground">
               <ShieldCheck className="w-4 h-4 shrink-0 mt-0.5" />
               <span>This amount is fixed — you won't need to enter it again on the payment page.</span>
+            </div>
+
+            <div className="text-left text-[11px] text-muted-foreground border-t border-border/50 pt-4">
+              Card payments are processed through an international payment gateway, so delivery to your service
+              can take anywhere from 15 minutes to 48 hours depending on your bank. Please be patient - contact
+              support if you need assistance.
             </div>
 
             {error && <p className="text-sm text-destructive">{error}</p>}
