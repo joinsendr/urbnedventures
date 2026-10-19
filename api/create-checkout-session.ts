@@ -61,10 +61,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     res.status(200).json({ url: session.url });
   } catch (err) {
-    const message = err instanceof Error ? err.message : String(err);
-    console.error("[create-checkout-session] Stripe error:", message);
-    // TEMP: surfacing the real Stripe error message to diagnose a live
-    // deployment issue. Revert to a generic message before this is relied on.
-    res.status(500).json({ error: "Could not start checkout. Please try again.", debug: message });
+    console.error("[create-checkout-session] Stripe error:", err instanceof Error ? err.message : err);
+    res.status(500).json({ error: "Could not start checkout. Please try again." });
   }
 }
