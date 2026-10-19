@@ -1,31 +1,16 @@
-import { ModernHeader } from "./components/ModernHeader";
-import { ModernHero } from "./components/ModernHero";
-import { ServicesShowcase } from "./components/ServicesShowcase";
-import { TechnologySection } from "./components/TechnologySection";
-import { DarkFeature } from "./components/DarkFeature";
-import { TechSpecs } from "./components/TechSpecs";
-import { Pricing } from "./components/Pricing";
-import { CompanyRegistrationForm } from "./components/CompanyRegistrationForm";
-import { FAQ } from "./components/FAQ";
-import { ContactForm } from "./components/ContactForm";
-import { FinalCTA } from "./components/FinalCTA";
-import { ModernFooter } from "./components/ModernFooter";
+import { BrowserRouter, Routes, Route } from "react-router";
+import Landing from "./pages/Landing";
+import Checkout from "./pages/Checkout";
+import CheckoutSuccess from "./pages/CheckoutSuccess";
 
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <ModernHeader />
-      <ModernHero />
-      <ServicesShowcase />
-      <TechnologySection />
-      <DarkFeature />
-      <TechSpecs />
-      <Pricing />
-      <CompanyRegistrationForm />
-      <FAQ />
-      <ContactForm />
-      <FinalCTA />
-      <ModernFooter />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route index element={<Landing />} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="checkout/success" element={<CheckoutSuccess />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
