@@ -74,7 +74,7 @@ const sections = [
   },
   {
     title: "11. Contact Information",
-    content: ["For refund requests or questions about this policy, please contact URBNED Inc. using the official contact details published on our website or included in your order confirmation.", "URBNED Inc.", "Website: [Insert official website URL]", "Email: [Insert customer support email]", "Registered business address: 2803 Philadelphia Pike, Suite B 1128, Claymont, 19703 DE, U.S.A."],
+    content: ["For refund requests or questions about this policy, please contact URBNED Inc. using the official contact details published on our website or included in your order confirmation.", "URBNED Inc.", "Website: www.urbned.ventures", "Email: ceo@urbned.ventures", "Registered business address: 2803 Philadelphia Pike, Suite B 1128, Claymont, 19703 DE, U.S.A."],
   },
 ] as const;
 
