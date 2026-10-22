@@ -46,7 +46,7 @@ export function ModernFooter() {
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Use</a></li>
               <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Warranty</a></li>
-              <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Returns</a></li>
+              <li><a href="/refund-policy" className="text-muted-foreground hover:text-primary transition-colors">Refund Policy</a></li>
             </ul>
           </div>
 
