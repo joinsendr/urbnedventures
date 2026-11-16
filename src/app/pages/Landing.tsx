@@ -1,31 +1,27 @@
-import { ModernHeader } from "../components/ModernHeader";
-import { ModernHero } from "../components/ModernHero";
-import { ServicesShowcase } from "../components/ServicesShowcase";
-import { TechnologySection } from "../components/TechnologySection";
-import { DarkFeature } from "../components/DarkFeature";
-import { TechSpecs } from "../components/TechSpecs";
-import { Pricing } from "../components/Pricing";
-import { CompanyRegistrationForm } from "../components/CompanyRegistrationForm";
-import { FAQ } from "../components/FAQ";
-import { ContactForm } from "../components/ContactForm";
-import { FinalCTA } from "../components/FinalCTA";
-import { ModernFooter } from "../components/ModernFooter";
+import { Navbar } from "../components/landing/Navbar";
+import { Hero } from "../components/landing/Hero";
+import { HowItWorks } from "../components/landing/HowItWorks";
+import { Features } from "../components/landing/Features";
+import { Audience } from "../components/landing/Audience";
+import { Pricing } from "../components/landing/Pricing";
+import { WhyUrbned } from "../components/landing/WhyUrbned";
+import { FAQSection } from "../components/landing/FAQSection";
+import { FinalCTA } from "../components/landing/FinalCTA";
+import { Footer } from "../components/landing/Footer";
 
 export default function Landing() {
   return (
-    <div className="min-h-screen">
-      <ModernHeader />
-      <ModernHero />
-      <ServicesShowcase />
-      <TechnologySection />
-      <DarkFeature />
-      <TechSpecs />
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <HowItWorks />
+      <Features />
+      <Audience />
       <Pricing />
-      <CompanyRegistrationForm />
-      <FAQ />
-      <ContactForm />
+      <WhyUrbned />
+      <FAQSection />
       <FinalCTA />
-      <ModernFooter />
+      <Footer />
     </div>
   );
 }
